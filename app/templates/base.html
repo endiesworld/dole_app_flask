@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% if title %}
+        <title>{{ title}} - Dole-App</title>
+        {% else %}
+        <title>Welcome to Dole-App!</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>Dole_Application: 
+            <a href="{{ url_for('main.home') }}">Home</a>
+            {% if current_user.is_anonymous %}
+            <a href="{{ url_for('auth.login') }}">Login</a>
+            {% else %}
+            <a href="{{ url_for('auth.logout') }}">Logout</a>
+            <a href="{{ url_for('analytics.analytics_upload') }}">Analytics</a>
+            {% endif %}
+        </div>
+        <hr>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li> {{message}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+            {% block content %}{% endblock  %}
+    </body>
+</html>

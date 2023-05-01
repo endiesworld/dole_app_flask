@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if current_user.username%}
+	    <h1> Hello, {{current_user.username}}!</h1>
+        <div> 
+            <p> 
+                Welcome to Dole Analytics App. To upload a file for analytics
+                purpose, please click on the analytics tab above.
+            </p>
+        </div>
+    {% else %}
+        <h1> Hello,</h1>
+        <div> 
+            <p> 
+                Welcome to Dole Analytics App. You will have to login to Dole Analytics
+                before you can use the Dole Analytics APP.
+            </p>
+            <p>Thank you.</p>
+        </div>
+    {% endif %}
+{% endblock %}
