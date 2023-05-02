@@ -7,7 +7,7 @@ of the `recipes` blueprint.
 from app import create_app
 
 
-def test_home_page_with_fixture(test_client):
+def test_home_page(test_client):
     """
     GIVEN a Flask application configured for testing
     WHEN the '/' page is requested (GET)
@@ -19,6 +19,7 @@ def test_home_page_with_fixture(test_client):
     assert b"You will have to login to Dole Analytics" in response.data
     assert b"before you can use the Dole Analytics APP." in response.data
     assert b"Thank you." in response.data
+
 
 def test_home_page_post(test_client):
     """
