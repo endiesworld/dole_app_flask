@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for, request, session
 from flask_login import current_user, login_user, logout_user
 from werkzeug.urls import url_parse
 
@@ -22,7 +22,7 @@ def login():
         if user is None or not user.check_password(form.password.data):
             flash('Invalid username or password')
             return redirect(url_for('auth.login'))
-                            
+        session['user_id'] = user.id
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get("next")
         
