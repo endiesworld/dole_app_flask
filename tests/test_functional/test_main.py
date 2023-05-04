@@ -30,3 +30,4 @@ def test_home_page_post(test_client):
     response = test_client.post('/')
     assert response.status_code == 405
     assert b"Welcome to Dole Analytics App." not in response.data
+
