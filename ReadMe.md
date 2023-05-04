@@ -1,4 +1,4 @@
- ####Dole App Take Home Interview
+ #### Dole App Take Home Interview
 
 Thank you for taking out time to work on this application. 
 
@@ -7,27 +7,24 @@ To get started, you should familiarize yourself with the structure of this appli
 This is a Flask Application. Its HTML files live in the `app/templates` folder and its Javascript and CSS files should live 
 in the `app/static` directory. This project uses the `Blueprint` structure provided natively by Flask. 
 
-All Database Model Objects live in the `app/models.py` file. 
+All Database Model Objects live in the `app/models` directory. 
 
-All migration files are in the `dole_migrations/versions` directory. `Alembic` is the tool used for database migrations. 
+All migration files are in the `migrations/versions` directory. `Alembic` is the tool used for database migrations. 
 
-`instance/config.py` houses all configurations for this application.  
+`global_config` file houses all configurations for runing the application in server mode and test mode.  
 
 All required dependencies are in `requirements.txt` file. 
 
 A virtual environment - `venv` - was created for this project as well.
 
-Sqlite database [`instance/dole_app_db.db`]
- 
-####Getting Started
-Before you get started, you should execute these exports:
-```
-export FLASK_APP=application.py;
-export APP_SETTINGS=instance.config.DoleAppConfig;
-export FLASK_ENV=development;
-```
+Sqlite database [`app/db/app.db`]
 
-####Tips
+#### Getting Started
+
+All environment variables are available in .flaskenv file
+
+#### Tips
+
 To create a new versioned migration file, run:
 
 ```flask db migrate -m <name_of_file>```
@@ -44,9 +41,9 @@ To start the application, execute:
 
 ```flask run```
 
-When you start the application, visit http://127.0.0.1:5000/home/all/users to ensure the application starts correctly. 
+When you start the application, visit http://127.0.0.1:5000/ to ensure the application starts correctly.
 
-###Instructions
+### Instructions
 
 This is meant to be a simple application. What we are looking for is not just an application that works. Rather, we value good engineering at Fedha and, to us, this consists good code, great architect, optimized calls and lovely designs.
 Attached herewith is a spreadsheet containing the list of employees at Company X. These employees have mmoved around different units in the company.
